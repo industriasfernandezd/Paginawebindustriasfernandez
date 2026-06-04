@@ -1,0 +1,108 @@
+# ===========================
+# Next.js
+# ===========================
+.next/
+out/
+build/
+
+# ===========================
+# Node.js / npm
+# ===========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+package-lock.json.bak
+
+# ===========================
+# Variables de entorno
+# ===========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# ===========================
+# TypeScript
+# ===========================
+*.tsbuildinfo
+next-env.d.ts
+
+# ===========================
+# Sistema operativo
+# ===========================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+
+# ===========================
+# Editores e IDEs
+# ===========================
+# VS Code
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+*.code-workspace
+
+# JetBrains
+.idea/
+*.iml
+*.iws
+
+# Vim / Emacs
+*.swp
+*.swo
+*~
+.#*
+
+# ===========================
+# Logs y diagnóstico
+# ===========================
+logs/
+*.log
+.cache/
+
+# ===========================
+# Testing y cobertura
+# ===========================
+coverage/
+.nyc_output/
+cypress/videos/
+cypress/screenshots/
+
+# ===========================
+# Vercel
+# ===========================
+.vercel
+
+# ===========================
+# Archivos de Claude Code
+# ===========================
+.claude/plans/
+.claude/task-output/
+
+# ===========================
+# Archivos temporales
+# ===========================
+tmp/
+temp/
+*.tmp
+*.bak
+*.orig

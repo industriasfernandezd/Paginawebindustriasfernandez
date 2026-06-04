@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #1E3A5F;
+  --navy-light: #2A5080;
+  --navy-dark: #152B48;
+  --gold: #B8953F;
+  --gold-light: #D4AF60;
+  --steel: #8A9BA8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-dm-sans), sans-serif;
+  overflow-x: hidden;
+  color: #111827;
+  background: #ffffff;
+}
+
+/* Compensate for sticky navbar on anchor scroll */
+[id] {
+  scroll-margin-top: 72px;
+}
+
+/* Steel texture overlay for dark sections */
+.steel-texture {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.018) 2px,
+    rgba(255, 255, 255, 0.018) 4px
+  );
+}
+
+/* Gold separator line */
+.gold-rule {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #B8953F, transparent);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0F1F35;
+}
+::-webkit-scrollbar-thumb {
+  background: #B8953F;
+  border-radius: 3px;
+}
+
+/* ============================================================
+   GRID BACKGROUND — blueprint/technical style
+   ============================================================ */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Dot at each grid intersection for extra depth — dark backgrounds */
+.grid-bg-dots {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(circle, rgba(184, 149, 63, 0.12) 1px, transparent 1px);
+  background-size: 44px 44px, 44px 44px, 44px 44px;
+  background-position: 0 0, 0 0, 22px 22px;
+}
+
+/* Grid for light backgrounds — navy lines + gold dots */
+.grid-bg-light {
+  background-image:
+    linear-gradient(rgba(30, 58, 95, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 58, 95, 0.07) 1px, transparent 1px),
+    radial-gradient(circle, rgba(184, 149, 63, 0.15) 1px, transparent 1px);
+  background-size: 44px 44px, 44px 44px, 44px 44px;
+  background-position: 0 0, 0 0, 22px 22px;
+}
+
+/* Center radial glow for hero sections */
+.grid-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 60% at 35% 50%,
+    rgba(30, 58, 95, 0) 0%,
+    rgba(15, 31, 53, 0.6) 100%
+  );
+  pointer-events: none;
+}
+
+/* ============================================================
+   LIGHT MODE overrides for dark sections
+   ============================================================ */
+.light-card {
+  @apply bg-white border border-gray-100;
+}
+.dark .light-card {
+  @apply bg-navy-dark border-white/10;
+}
+
+/* ============================================================
+   SMOOTH THEME TRANSITIONS
+   ============================================================ */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid #B8953F;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
