@@ -1,8 +1,9 @@
 'use client'
 
 import { useState, useRef } from 'react'
+import Image from 'next/image'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { MessageCircle, Star, Ruler } from 'lucide-react'
+import { MessageCircle, Star, Ruler, Clock, Zap } from 'lucide-react'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Badge } from '@/components/ui/Badge'
 import { buildWhatsAppUrl, WA_MESSAGES } from '@/lib/whatsapp'
@@ -21,6 +22,8 @@ export function Catalog() {
   const [activeFilter, setActiveFilter] = useState(0)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const ctaRef = useRef(null)
+  const ctaInView = useInView(ctaRef, { once: true, amount: 0.2 })
 
   const filtered =
     activeFilter === 0
@@ -141,35 +144,153 @@ export function Catalog() {
           </AnimatePresence>
         </motion.div>
 
-        {/* Special measures CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.5, duration: 0.5 }}
-          className="mt-10 bg-gold/10 border border-gold/30 rounded-2xl p-8 text-center"
-        >
-          <p className="font-display font-bold text-white text-xl uppercase tracking-wide mb-2">
-            ¿Necesitas una medida especial?
-          </p>
-          <p className="font-body text-steel-light mb-6 max-w-lg mx-auto">
-            Fabricamos <strong className="text-white">cualquier dimensión</strong> a pedido.
-            El precio se calcula con app propia y la entrega es en{' '}
-            <strong className="text-gold">1–2 días hábiles</strong>.
-          </p>
-          <motion.a
-            href={buildWhatsAppUrl(
-              'Hola, necesito una medida especial. ¿Me pueden ayudar con las dimensiones y precio?'
-            )}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-2 bg-gold text-navy font-display font-bold px-8 py-3.5 rounded-full text-base hover:bg-gold-light transition-colors shadow-lg shadow-gold/20"
+        {/* Special measures CTA — redesigned */}
+        <div ref={ctaRef} className="mt-16">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={ctaInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="relative overflow-hidden rounded-3xl border border-gold/25"
           >
-            <MessageCircle className="w-5 h-5" />
-            Consultar medida especial
-          </motion.a>
-        </motion.div>
+            {/* Gold top accent line */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent z-10" />
+
+            {/* Split grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[420px]">
+
+              {/* LEFT — content */}
+              <div className="relative bg-navy-darker steel-texture flex flex-col justify-center px-10 py-14 lg:py-16 z-10">
+                {/* Eyebrow */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={ctaInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                  className="flex items-center gap-3 mb-5"
+                >
+                  <div className="h-px w-8 bg-gold" />
+                  <span className="font-display text-xs font-bold text-gold uppercase tracking-widest">
+                    Fabricación personalizada
+                  </span>
+                </motion.div>
+
+                {/* Headline */}
+                <motion.h3
+                  initial={{ opacity: 0, x: -24 }}
+                  animate={ctaInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: 0.3, duration: 0.55 }}
+                  className="font-display font-black text-3xl md:text-4xl text-white uppercase leading-tight mb-5"
+                >
+                  ¿Necesitas una <br />
+                  <span className="text-gold">medida especial?</span>
+                </motion.h3>
+
+                {/* Description */}
+                <motion.p
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={ctaInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  className="font-body text-steel-light leading-relaxed mb-8 max-w-md"
+                >
+                  Fabricamos <strong className="text-white">cualquier dimensión</strong> a pedido.
+                  Medimos, calculamos y entregamos — todo en tiempo récord.
+                </motion.p>
+
+                {/* Benefit list */}
+                <motion.ul
+                  initial="hidden"
+                  animate={ctaInView ? 'visible' : 'hidden'}
+                  variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 0.5 } } }}
+                  className="space-y-3.5 mb-10"
+                >
+                  {[
+                    { icon: Ruler, text: 'Ancho, alto y profundidad completamente a tu medida' },
+                    { icon: Zap,   text: 'Precio calculado al instante con app propia' },
+                    { icon: Clock, text: 'Entrega en 1–2 días hábiles desde la confirmación' },
+                  ].map(({ icon: Icon, text }) => (
+                    <motion.li
+                      key={text}
+                      variants={{
+                        hidden: { opacity: 0, x: -16 },
+                        visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
+                      }}
+                      className="flex items-start gap-3"
+                    >
+                      <div className="w-7 h-7 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Icon className="w-3.5 h-3.5 text-gold" />
+                      </div>
+                      <span className="font-body text-sm text-steel-light leading-relaxed">{text}</span>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+
+                {/* CTA */}
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={ctaInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.85, duration: 0.45 }}
+                >
+                  <motion.a
+                    href={buildWhatsAppUrl(
+                      'Hola, necesito una medida especial. ¿Me pueden ayudar con las dimensiones y precio?'
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="inline-flex items-center gap-2.5 bg-[#25D366] text-white font-display font-bold px-8 py-4 rounded-full text-base shadow-lg shadow-[#25D366]/25 hover:bg-[#1ebe5d] transition-colors"
+                  >
+                    <MessageCircle className="w-5 h-5" />
+                    Consultar medida especial
+                  </motion.a>
+                </motion.div>
+              </div>
+
+              {/* RIGHT — image with overlay elements */}
+              <div className="relative hidden lg:block min-h-[420px]">
+                {/* Photo */}
+                <Image
+                  src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?w=900&q=80"
+                  alt="Fabricación de nichos a medida especial"
+                  fill
+                  className="object-cover"
+                  sizes="50vw"
+                />
+                {/* Left-side gradient so it blends with the content panel */}
+                <div className="absolute inset-0 bg-gradient-to-r from-navy-darker via-navy-darker/40 to-transparent" />
+                {/* Bottom dark fade */}
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-darker/60 via-transparent to-transparent" />
+
+                {/* Floating delivery card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={ctaInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.9, duration: 0.5 }}
+                  className="absolute bottom-8 right-8 bg-navy-darker/90 border border-gold/35 rounded-2xl px-6 py-4 backdrop-blur-sm shadow-xl"
+                >
+                  <p className="font-display font-bold text-gold uppercase tracking-widest text-[10px] mb-1">
+                    Entrega garantizada
+                  </p>
+                  <p className="font-display font-black text-white text-3xl leading-none">
+                    1–2 <span className="text-gold text-xl">días</span>
+                  </p>
+                  <p className="font-body text-xs text-steel-light mt-1">desde la confirmación</p>
+                </motion.div>
+
+                {/* Floating top-right badge */}
+                <motion.div
+                  initial={{ opacity: 0, x: 16 }}
+                  animate={ctaInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: 1.05, duration: 0.45 }}
+                  className="absolute top-8 right-8 bg-[#25D366]/15 border border-[#25D366]/35 rounded-xl px-4 py-2.5 backdrop-blur-sm"
+                >
+                  <p className="font-display font-bold text-[#25D366] text-xs uppercase tracking-wide">
+                    A tu medida exacta
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
