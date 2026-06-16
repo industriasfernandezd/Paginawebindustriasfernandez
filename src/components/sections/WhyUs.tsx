@@ -17,7 +17,7 @@ const iconMap: Record<string, React.ElementType> = {
 
 export function WhyUs() {
   const videoRef = useRef(null)
-  const videoInView = useInView(videoRef, { once: true, amount: 0.2 })
+  const videoInView = useInView(videoRef, { once: true, amount: 0.2, margin: '200px' })
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
@@ -69,16 +69,20 @@ export function WhyUs() {
           initial={{ opacity: 0, y: 32 }}
           animate={videoInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="relative rounded-2xl overflow-hidden mt-14 shadow-2xl border border-gray-200 dark:border-white/10"
+          className="relative h-[280px] sm:h-[360px] lg:h-[480px] rounded-2xl overflow-hidden mt-14 shadow-2xl border border-gray-200 dark:border-white/10 bg-navy-darker"
         >
-          <video
-            src="/video1.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full max-h-[480px] object-cover"
-          />
+          {/* El video solo se descarga/monta cuando la sección está cerca del viewport */}
+          {videoInView && (
+            <video
+              src="/video1.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
         </motion.div>
 

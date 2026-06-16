@@ -106,3 +106,8 @@ temp/
 *.tmp
 *.bak
 *.orig
+
+# ===========================
+# Backup de imágenes/videos originales (resolución completa, sin optimizar)
+# ===========================
+originals-fullres/

@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { MessageCircle, Star, Ruler, Clock, Zap } from 'lucide-react'
+import { MessageCircle, Star, Ruler, Clock, Zap, ImageOff } from 'lucide-react'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Badge } from '@/components/ui/Badge'
 import { buildWhatsAppUrl, WA_MESSAGES } from '@/lib/whatsapp'
@@ -12,16 +12,9 @@ import { products } from '@/data/products'
 
 const ctaBgImages = [
   '/Medida_especial.JPG',
-  '/Medida_especial2.HEIC',
-  '/Medida_especial3.HEIC',
+  '/Medida_especial2.jpg',
+  '/Medida_especial3.jpg',
   '/Hero3.jpg',
-]
-
-const cajaImages = [
-  '/Caja_sin_fondo.png',
-  '/Caja_sin_fondo2.png',
-  '/Caja_sin_fondo3.png',
-  '/Caja_sin_fondo4.png',
 ]
 
 const filters = [
@@ -105,15 +98,24 @@ export function Catalog() {
                 {/* Product visual */}
                 <div className="relative bg-navy-darker h-44 flex items-center justify-center overflow-hidden">
                   <div className="absolute inset-0 steel-texture opacity-50" />
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={cajaImages[index % cajaImages.length]}
-                      alt={product.ref}
-                      fill
-                      className="object-contain p-5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    />
-                  </div>
+                  {product.image ? (
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={product.image}
+                        alt={product.ref}
+                        fill
+                        className="object-contain p-5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-300"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                    </div>
+                  ) : (
+                    <div className="relative flex flex-col items-center justify-center gap-2 z-10">
+                      <ImageOff className="w-7 h-7 text-steel/40" />
+                      <p className="font-display text-[10px] text-steel/60 uppercase tracking-widest">
+                        Próximamente
+                      </p>
+                    </div>
+                  )}
                   {product.popular && (
                     <div className="absolute top-3 right-3">
                       <Badge variant="gold" className="gap-1">

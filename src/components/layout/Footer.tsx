@@ -1,6 +1,27 @@
 import Image from 'next/image'
-import { MessageCircle, Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { MessageCircle, Phone, Mail, MapPin, Clock, Instagram } from 'lucide-react'
 import { buildWhatsAppUrl, WA_MESSAGES } from '@/lib/whatsapp'
+
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M16.6 5.82c-.97-.85-1.6-2.07-1.6-3.42h-3.16v13.84c0 1.62-1.32 2.94-2.94 2.94a2.94 2.94 0 0 1 0-5.88c.27 0 .53.04.78.11V10.4a6.1 6.1 0 0 0-.78-.05A6.11 6.11 0 0 0 2.8 16.46 6.11 6.11 0 0 0 8.9 22.57a6.11 6.11 0 0 0 6.1-6.11V9.4a8.3 8.3 0 0 0 4.85 1.56V7.8a4.85 4.85 0 0 1-3.25-1.98Z" />
+    </svg>
+  )
+}
+
+const socialLinks = [
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/industriasfernandezd/',
+    icon: Instagram,
+  },
+  {
+    label: 'TikTok',
+    href: 'https://www.tiktok.com/@industrias.fernandez',
+    icon: TikTokIcon,
+  },
+]
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -35,15 +56,29 @@ export function Footer() {
               Empresa metalmecánica colombiana con más de {year - 2003} años fabricando nichos,
               cajas y rejillas para protección de medidores de gas natural.
             </p>
-            <a
-              href={buildWhatsAppUrl(WA_MESSAGES.general)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full text-sm font-display font-bold hover:bg-[#1ebe5d] transition-colors"
-            >
-              <MessageCircle className="w-4 h-4" />
-              Cotizar por WhatsApp
-            </a>
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href={buildWhatsAppUrl(WA_MESSAGES.general)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full text-sm font-display font-bold hover:bg-[#1ebe5d] transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Cotizar por WhatsApp
+              </a>
+              {socialLinks.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/15 text-steel-light hover:text-gold hover:border-gold/50 transition-colors"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Links rápidos */}

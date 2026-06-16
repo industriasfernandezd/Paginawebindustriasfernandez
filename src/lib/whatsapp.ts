@@ -10,6 +10,8 @@ export const WA_MESSAGES = {
   hero: 'Hola, quiero cotizar mi nicho para medidor de gas. ¿Cuál es el precio y tiempo de entrega?',
   catalog: (ref: string, medida: string) =>
     `Hola, quiero cotizar:\n📐 Referencia: ${ref}\n📏 Medida: ${medida}\n\n¿Cuál es el precio y tiempo de entrega?`,
+  accessory: (label: string) =>
+    `Hola, me interesa este accesorio: ${label}. ¿Tienen disponible y cuál es el precio?`,
   quote: (fields: {
     medida: string
     cantidad: string

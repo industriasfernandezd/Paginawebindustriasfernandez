@@ -36,7 +36,7 @@ function ProductSchematic() {
         initial={{ opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.85, delay: 0.85, ease: 'easeOut' }}
-        className="relative w-52 h-64 lg:w-60 lg:h-72"
+        className="relative w-60 h-72 lg:w-72 lg:h-80"
       >
         {/* Outer frame */}
         <div className="absolute inset-0 border-2 border-gold/50 rounded-xl bg-navy-darker/80 backdrop-blur-sm shadow-2xl shadow-black/50 overflow-hidden">
@@ -72,14 +72,14 @@ function ProductSchematic() {
             </div>
           ))}
           {/* Product image centered inside the frame */}
-          <div className="absolute inset-0 flex items-center justify-center p-8 pt-10 pb-8">
+          <div className="absolute inset-0 flex items-center justify-center px-5 pt-9 pb-7">
             <div className="relative w-full h-full">
               <Image
-                src="/Caja_sin_fondo.png"
+                src="/foto_hero.png"
                 alt="Nicho para gas Industrias Fernández"
                 fill
                 className="object-contain drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]"
-                sizes="(max-width: 1024px) 0px, 240px"
+                sizes="(max-width: 1024px) 0px, 320px"
               />
             </div>
           </div>
@@ -256,7 +256,7 @@ export function Hero() {
               </motion.span>
               <motion.span
                 variants={fadeUp}
-                className="inline-block ml-4 text-5xl md:text-6xl lg:text-7xl text-white"
+                className="inline-block text-5xl md:text-6xl lg:text-7xl text-white"
               >
                 en 1–4 días
               </motion.span>

@@ -60,7 +60,7 @@ const comparison = [
 
 export function Clients() {
   const ref    = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const isInView = useInView(ref, { once: true, amount: 0.1, margin: '200px' })
 
   return (
     <section id="clientes" className="py-24 bg-navy-dark steel-texture">
@@ -83,15 +83,19 @@ export function Clients() {
             className="relative"
           >
             {/* Marco con línea dorada superior */}
-            <div className="relative h-[420px] lg:h-[520px] rounded-2xl overflow-hidden border border-gold/20">
-              <video
-                src="/section_confia.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+            <div className="relative h-[420px] lg:h-[520px] rounded-2xl overflow-hidden border border-gold/20 bg-navy-darker">
+              {/* El video solo se descarga/monta cuando la sección está cerca del viewport */}
+              {isInView && (
+                <video
+                  src="/section_confia.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="none"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              )}
               {/* Overlay inferior para que el badge sea legible */}
               <div className="absolute inset-0 bg-gradient-to-t from-navy-darker/80 via-transparent to-transparent" />
               {/* Badge flotante */}

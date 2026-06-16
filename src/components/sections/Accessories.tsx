@@ -1,26 +1,13 @@
 'use client'
 
 import { useRef } from 'react'
+import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
-import { Wrench, MessageCircle } from 'lucide-react'
+import { MessageCircle } from 'lucide-react'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { staggerContainer, fadeUp } from '@/lib/animations'
-import { buildWhatsAppUrl } from '@/lib/whatsapp'
-
-const accessories = [
-  'Válvulas de paso',
-  'Tubería pealpe',
-  'Tubería de cobre',
-  'Uniones',
-  'Tees',
-  'Hembras y machos',
-  'Mangueras',
-  'Conduflex',
-  'Fuerza media',
-  'Soldadura',
-  'Válvula bres',
-  'Reguladores',
-]
+import { buildWhatsAppUrl, WA_MESSAGES } from '@/lib/whatsapp'
+import { accessories } from '@/data/accessories'
 
 export function Accessories() {
   const ref = useRef(null)
@@ -42,21 +29,37 @@ export function Accessories() {
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-12"
         >
           {accessories.map((item) => (
-            <motion.div
-              key={item}
+            <motion.a
+              key={item.label}
+              href={buildWhatsAppUrl(WA_MESSAGES.accessory(item.label))}
+              target="_blank"
+              rel="noopener noreferrer"
               variants={fadeUp}
               whileHover={{ y: -4, borderColor: '#B8953F' }}
+              whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.2 }}
-              className="bg-white dark:bg-navy-dark border border-gray-100 dark:border-white/10 rounded-xl p-4 text-center cursor-default"
+              className="group relative bg-white dark:bg-navy-dark border border-gray-100 dark:border-white/10 rounded-xl p-5 text-center"
             >
-              <div className="w-10 h-10 bg-navy/5 dark:bg-white/5 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Wrench className="w-5 h-5 text-navy/60 dark:text-steel-light" />
+              <div className="relative w-20 h-20 mx-auto mb-3">
+                <Image
+                  src={item.image}
+                  alt={item.label}
+                  fill
+                  className="object-contain"
+                  sizes="80px"
+                />
               </div>
-              <p className="font-body text-sm text-gray-700 dark:text-steel-light leading-snug">{item}</p>
-            </motion.div>
+              <p className="font-body text-base text-gray-700 dark:text-steel-light leading-snug">
+                {item.label}
+              </p>
+              {/* Indicador de WhatsApp al hover */}
+              <div className="absolute top-2 right-2 w-5 h-5 rounded-full bg-[#25D366] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <MessageCircle className="w-3 h-3 text-white" />
+              </div>
+            </motion.a>
           ))}
         </motion.div>
 
