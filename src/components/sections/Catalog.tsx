@@ -110,7 +110,7 @@ export function Catalog() {
                       src={product.image}
                       alt={product.ref}
                       fill
-                      className={`object-contain p-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-all duration-300 ease-out ${
+                      className={`object-contain p-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-all duration-300 ease-out group-hover:scale-110 ${
                         product.hoverImage ? "group-hover:opacity-0" : ""
                       }`}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -120,7 +120,7 @@ export function Catalog() {
                         src={product.hoverImage}
                         alt={product.ref}
                         fill
-                        className="object-contain p-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-all duration-300 ease-out opacity-0 group-hover:opacity-100 absolute top-0 left-0"
+                        className="object-contain p-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-all duration-300 ease-out group-hover:scale-110 opacity-0 group-hover:opacity-100 absolute top-0 left-0"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       />
                     )}
