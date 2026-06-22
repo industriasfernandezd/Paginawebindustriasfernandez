@@ -91,40 +91,57 @@ export function Catalog() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.25 }}
+                whileHover={{ y: -15 }}
+                transition={{ duration: 0.1 }}
                 className="bg-navy-dark border border-white/10 rounded-2xl overflow-hidden group hover:border-gold/40 hover:shadow-xl hover:shadow-black/30 transition-all duration-300"
               >
-                {/* Product visual */}
-                <div className="relative bg-navy-darker h-44 flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 steel-texture opacity-50" />
-                  {product.image ? (
-                    <div className="relative w-full h-full">
+               {/* Product visual */}
+              <div 
+                className="relative aspect-square flex items-center justify-center overflow-hidden bg-navy-darker"
+                style={{
+                  backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)`,
+                  backgroundSize: '10px 10px',
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-b from-navy-darker/0 via-navy-darker/40 to-navy-darker" />
+                {product.image ? (
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={product.image}
+                      alt={product.ref}
+                      fill
+                      className={`object-contain p-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-all duration-300 ease-out ${
+                        product.hoverImage ? "group-hover:opacity-0" : ""
+                      }`}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                    {product.hoverImage && (
                       <Image
-                        src={product.image}
+                        src={product.hoverImage}
                         alt={product.ref}
                         fill
-                        className="object-contain p-5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-300"
+                        className="object-contain p-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)] transition-all duration-300 ease-out opacity-0 group-hover:opacity-100 absolute top-0 left-0"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       />
-                    </div>
-                  ) : (
-                    <div className="relative flex flex-col items-center justify-center gap-2 z-10">
-                      <ImageOff className="w-7 h-7 text-steel/40" />
-                      <p className="font-display text-[10px] text-steel/60 uppercase tracking-widest">
-                        Próximamente
-                      </p>
-                    </div>
-                  )}
-                  {product.popular && (
-                    <div className="absolute top-3 right-3">
-                      <Badge variant="gold" className="gap-1">
-                        <Star className="w-3 h-3" fill="currentColor" />
-                        Popular
-                      </Badge>
-                    </div>
-                  )}
-                </div>
+                    )}
+                  </div>
+                ) : (
+                  <div className="relative flex flex-col items-center justify-center gap-2 z-10">
+                    <ImageOff className="w-7 h-7 text-steel/40" />
+                    <p className="font-display text-[10px] text-steel/60 uppercase tracking-widest">
+                      Próximamente
+                    </p>
+                  </div>
+                )}
+                {product.popular && (
+                  <div className="absolute top-3 right-3">
+                    <Badge variant="gold" className="gap-1">
+                      <Star className="w-3 h-3" fill="currentColor" />
+                      Popular
+                    </Badge>
+                  </div>
+                )}
+              </div>
 
                 {/* Product info */}
                 <div className="p-5">

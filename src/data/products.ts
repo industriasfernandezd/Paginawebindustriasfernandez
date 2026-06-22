@@ -7,8 +7,9 @@ export interface Product {
   frentes: string[]
   precio: string
   popular?: boolean
-  /** Foto real del producto (public/). Si no existe, se muestra "Próximamente". */
+  /** Foto real del producto (public). Si no existe, se muestra "Próximamente". */
   image?: string
+  hoverImage?: string
 }
 
 export const products: Product[] = [
@@ -20,7 +21,8 @@ export const products: Product[] = [
     countersCount: 1,
     frentes: ['Troquelado', 'Malla'],
     precio: 'Desde $40.000',
-    image: '/37_37.png',
+    image: '/37_37_18_frontal.png',
+    hoverImage: '/37_37_18_diagonal.png',
   },
   {
     id: 'nicho-45x45',
@@ -30,7 +32,8 @@ export const products: Product[] = [
     countersCount: 2,
     frentes: ['Troquelado'],
     precio: 'Consultar',
-    image: '/45_45_20.png',
+    image: '/45_45_20_frontal.png',
+    hoverImage: '/45_45_20_diagonal.png',
   },
   {
     id: 'nicho-55x25',
@@ -40,7 +43,8 @@ export const products: Product[] = [
     countersCount: 2,
     frentes: ['Troquelado', 'Malla'],
     precio: 'Consultar',
-    image: '/55_25_18.png',
+    image: '/55_25_18_frontal.png',
+    hoverImage: '/55_25_18_diagonal.png',
   },
   {
     id: 'nicho-55x55',
@@ -50,7 +54,8 @@ export const products: Product[] = [
     countersCount: 2,
     frentes: ['Troquelado', 'Malla'],
     precio: 'Consultar',
-    image: '/55_55_26.png',
+    image: '/55_55_26_frontal.png',
+    hoverImage: '/55_55_26_diagonal.png',
   },
   {
     id: 'nicho-60x40',
@@ -61,7 +66,8 @@ export const products: Product[] = [
     frentes: ['Troquelado', 'Malla'],
     precio: 'Desde $90.000',
     popular: true,
-    image: '/60_40_18.png',
+    image: '/60_40_18_frontal.png',
+    hoverImage: '/60_40_18_diagonal.png',
   },
   {
     id: 'nicho-70x35',
@@ -71,7 +77,8 @@ export const products: Product[] = [
     countersCount: 4,
     frentes: ['Troquelado', 'Malla'],
     precio: 'Consultar',
-    image: '/70_35_18.png',
+    image: '/70_35_18_frontal.png',
+    hoverImage: '/70_35_18_diagonal.png',
   },
   {
     id: 'nicho-90x25',
@@ -81,7 +88,8 @@ export const products: Product[] = [
     countersCount: 4,
     frentes: ['Troquelado', 'Malla'],
     precio: 'Consultar',
-    image: '/90_25_18.png',
+    image: '/90_25_18_frontal.png',
+    hoverImage: '/90_25_18_diagonal.png',
   },
   {
     id: 'nicho-105x35',
@@ -91,7 +99,8 @@ export const products: Product[] = [
     countersCount: 5,
     frentes: ['Troquelado', 'Malla'],
     precio: 'Consultar',
-    image: '/105_35_18.png',
+    image: '/105_35_18_frontal.png',
+    hoverImage: '/105_35_18_diagonal.png',
   },
   {
     id: 'nicho-140x35',
@@ -101,7 +110,8 @@ export const products: Product[] = [
     countersCount: 6,
     frentes: ['Malla reforzada'],
     precio: 'Consultar',
-    image: '/140_35_18.png',
+    image: '/140_35_18_frontal.png',
+    hoverImage: '/140_35_18_diagonal.png',
   },
   {
     id: 'nicho-med-reg',
