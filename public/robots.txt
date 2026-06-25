@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://industriasfernandezd.com/sitemap.xml
+Sitemap: https://www.industriasfernandez.com/sitemap.xml

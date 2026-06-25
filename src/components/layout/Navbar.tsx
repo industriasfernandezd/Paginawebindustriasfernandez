@@ -11,7 +11,7 @@ import { buildWhatsAppUrl, WA_MESSAGES } from '@/lib/whatsapp'
 const navLinks = [
   { label: 'Catálogo', href: '#catalogo' },
   { label: 'Proceso', href: '#proceso' },
-  { label: 'Clientes', href: '#clientes' },
+  { label: 'Nosotros', href: '#clientes' },
   { label: 'Accesorios', href: '#accesorios' },
   { label: 'Contacto', href: '#contacto' },
 ]

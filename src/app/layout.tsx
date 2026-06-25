@@ -7,7 +7,7 @@ import { WhatsAppBubble } from '@/components/layout/WhatsAppBubble'
 import './globals.css'
 
 // Cambia esta URL por tu dominio real cuando lo tengas
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://industriasfernandezd.com'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.industriasfernandez.com'
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -100,6 +100,12 @@ export const metadata: Metadata = {
     'nicho medidor gas Bogotá',
     'caja gas acero Colombia',
     'proveedor nichos gas sector gas Colombia',
+    'cajas para gas Bogotá',
+    'nichos para medidores de gas',
+    'fabricante cajas de gas Colombia',
+    'cajas para contador de gas',
+    'nichos metálicos para gas',
+    'gabinetes para medidores de gas',
   ],
   authors: [{ name: 'Industrias Fernández D.' }],
   creator: 'Industrias Fernández D.',
