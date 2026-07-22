@@ -28,7 +28,7 @@ body {
 
 /* Compensate for sticky navbar on anchor scroll */
 [id] {
-  scroll-margin-top: 72px;
+  scroll-margin-top: 84px;
 }
 
 /* Steel texture overlay for dark sections */

@@ -15,7 +15,7 @@ const iconMap: Record<string, React.ElementType> = {
 }
 
 const materialSpecs = [
-  { label: 'Material',    value: 'Lámina acero cold-rolled' },
+  { label: 'Material',    value: 'Lámina cold-rolled' },
   { label: 'Calibre',     value: 'BWG 18 / Cal. 24' },
   { label: 'Norma',       value: 'JIS G 3141 SPCC-CD' },
   { label: 'Elasticidad', value: '274.45 N/MM²' },
@@ -37,7 +37,7 @@ const CARD_VARIANTS = {
 // Imagen estática por etapa — usa el archivo local o muestra placeholder si aún no existe
 function StepImage({ stepNumber, icon: Icon }: { stepNumber: number; icon: React.ElementType }) {
   const [error, setError] = useState(false)
-  const fileName = `etapa_control_${stepNumber}`
+  const fileName = stepNumber === 7 ? 'etapa_control_7_1' : `etapa_control_${stepNumber}`
 
   if (error) {
     return (
@@ -301,7 +301,7 @@ export function Process() {
               Ficha técnica del material
             </p>
             <p className="font-body text-steel-light text-base mt-1">
-              Lámina de acero cold-rolled de procedencia nacional certificada
+              Lámina cold-rolled de procedencia nacional certificada
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-y md:divide-y-0 divide-white/10">

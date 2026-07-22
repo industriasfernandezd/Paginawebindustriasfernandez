@@ -60,7 +60,7 @@ export const processSteps: ProcessStep[] = [
     step: 7,
     title: 'Acabado y almacenamiento',
     description:
-      'Se aplica viniquel como acabado protector final. Las cajas se clasifican por medida y referencia, listas para despacho inmediato.',
+      'Las cajas se recubren para cuidar los acabados y se clasifican por medida y referencia, listas para despacho inmediato.',
     icon: 'Package',
   },
 ]

@@ -36,13 +36,13 @@ function Logo({ className = '' }: { className?: string }) {
   }
 
   return (
-    <div className={`relative h-10 w-10 ${className}`}>
+    <div className={`relative h-14 w-14 ${className}`}>
       <Image
         src={logoSrc}
         alt="Industrias Fernández D. — Logo"
         fill
         className="object-contain"
-        sizes="40px"
+        sizes="56px"
         priority
       />
     </div>
@@ -82,15 +82,15 @@ export function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${navBg}`}
       >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[84px] flex items-center justify-between">
           {/* Logo + brand name */}
           <a href="#hero" className="flex items-center gap-3 group">
             <Logo />
             <div className="hidden sm:block">
-              <p className={`font-display font-bold text-sm tracking-wider uppercase leading-none transition-colors ${textColor}`}>
+              <p className={`font-display font-bold text-base tracking-wider uppercase leading-none transition-colors ${textColor}`}>
                 Industrias Fernández D.
               </p>
-              <p className="font-body text-gold text-xs tracking-wide">
+              <p className="font-body text-gold text-sm tracking-wide">
                 Nichos para gas · Bogotá
               </p>
             </div>
@@ -142,7 +142,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className={`fixed top-[72px] left-0 right-0 z-30 backdrop-blur-md border-t md:hidden ${
+            className={`fixed top-[84px] left-0 right-0 z-30 backdrop-blur-md border-t md:hidden ${
               isLight
                 ? 'bg-white/95 border-gray-200 shadow-md shadow-black/8'
                 : 'bg-navy-darker/95 border-white/10 shadow-lg shadow-black/20'

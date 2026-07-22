@@ -86,7 +86,7 @@ export function About() {
                 velocidad y atención directa.
               </p>
               <p className="font-semibold text-navy dark:text-white">
-                Claudia Fernández lidera el equipo de 4 personas que convierte lámina de acero en
+                Claudia Fernández lidera el equipo de 4 personas que convierte lámina cold-rolled en
                 un producto terminado listo en horas.
               </p>
             </div>

@@ -72,7 +72,7 @@ const jsonLd = {
         itemOffered: {
           '@type': 'Product',
           name: 'Cajas para medidores de gas',
-          description: 'Cajas metálicas en acero SPCC-CD certificado JIS G 3141 con pintura electrostática.',
+          description: 'Cajas metálicas en lámina cold-rolled SPCC-CD certificado JIS G 3141 con pintura electrostática.',
         },
       },
     ],
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
     'cajas gas entrega rápida Bogotá',
     'Industrias Fernández',
     'nicho medidor gas Bogotá',
-    'caja gas acero Colombia',
+    'caja gas cold-rolled Colombia',
     'proveedor nichos gas sector gas Colombia',
     'cajas para gas Bogotá',
     'nichos para medidores de gas',
@@ -114,9 +114,9 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   icons: {
-    icon: '/logos/logo.png',
-    shortcut: '/logos/logo.png',
-    apple: '/logos/logo.png',
+    icon: '/logos/logo-dark-icon.png',
+    shortcut: '/logos/logo-dark-icon.png',
+    apple: '/logos/logo-dark-icon.png',
   },
   openGraph: {
     title: 'Industrias Fernández D. — Nichos y Cajas para Gas',
