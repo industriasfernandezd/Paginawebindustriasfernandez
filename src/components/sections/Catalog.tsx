@@ -149,7 +149,7 @@ export function Catalog() {
                     {product.ref}
                   </h3>
                   <p className="font-body text-sm text-steel-light mb-3">
-                    {product.contadores}
+                    {product.medida}
                   </p>
 
                   {/* Frentes */}

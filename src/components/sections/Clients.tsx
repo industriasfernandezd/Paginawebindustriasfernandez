@@ -43,7 +43,7 @@ const reasons = [
     id: 'atencion',
     icon: UserCheck,
     title: 'Atención personalizada',
-    description: 'Hablas directamente con Claudia. Sin call centers ni intermediarios.',
+    description: 'Asesoría sin intermediarios: sin call centers ni esperas. Conéctate directamente con nuestro personal encargado para gestionar tu cotización al instante.',
   },
 ]
 

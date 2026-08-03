@@ -99,7 +99,7 @@ export function Process() {
         <SectionHeading
           eyebrow="Proceso de fabricación"
           title="7 etapas de control"
-          subtitle="Cada caja que fabricamos pasa por 7 etapas de control: desde el corte de precisión hasta el acabado con viniquel."
+          subtitle="Cada caja que fabricamos pasa por 7 etapas de control: desde el corte de precisión hasta el empaque con vinipel."
         />
 
         <motion.div

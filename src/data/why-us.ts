@@ -67,7 +67,7 @@ export const whyUsItems: WhyUsItem[] = [
     icon: 'UserCheck',
     title: 'Atención directa',
     description:
-      'Claudia Fernández atiende directamente. Cotización por WhatsApp con respuesta inmediata sin intermediarios.',
+      'Cotice hoy mismo por WhatsApp: atención directa de fábrica, respuesta inmediata y sin intermediarios para agilizar su proyecto.',
   },
   {
     id: 'normativa',

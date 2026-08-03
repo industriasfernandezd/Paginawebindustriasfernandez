@@ -36,7 +36,6 @@ function AnimatedCounter({ target, suffix = '', prefix = '', duration = 2 }: Cou
 
 const stats = [
   { prefix: '+', value: new Date().getFullYear() - 2003, suffix: '', label: 'Años en el mercado', desc: 'Fundados en 2003' },
-  { prefix: '', value: 4, suffix: '', label: 'Personas en el equipo', desc: 'Operativas + administrativa' },
   { prefix: '+', value: 12, suffix: '', label: 'Medidas estándar', desc: 'Stock permanente' },
   { prefix: '1–', value: 4, suffix: ' días', label: 'Tiempo de entrega', desc: 'Máximo hábiles' },
 ]
@@ -73,7 +72,7 @@ export function About() {
                 nosotros necesitábamos las cajas instaladas de inmediato.
               </p>
               <p>
-                Germán Fernández aprendió el proceso, adquirió la maquinaria y contrató el
+                Germán Díaz aprendió el proceso, adquirió la maquinaria y contrató el
                 personal especializado. Lo que nació como solución interna para GC Ingeniería se
                 convirtió en una empresa manufacturera independiente.
               </p>
@@ -86,8 +85,8 @@ export function About() {
                 velocidad y atención directa.
               </p>
               <p className="font-semibold text-navy dark:text-white">
-                Claudia Fernández lidera el equipo de 4 personas que convierte lámina cold-rolled en
-                un producto terminado listo en horas.
+                Bajo la dirección de Claudia Fernández, nuestro equipo de especialistas transforma
+                lámina cold-rolled en productos terminados en tiempo récord.
               </p>
             </div>
 
@@ -110,19 +109,19 @@ export function About() {
               variants={staggerContainer}
               initial="hidden"
               animate={isInView ? 'visible' : 'hidden'}
-              className="grid grid-cols-2 gap-4"
+              className="grid grid-cols-3 gap-3 sm:gap-4"
             >
               {stats.map((stat) => (
                 <motion.div
                   key={stat.label}
                   variants={fadeUp}
-                  className="bg-navy p-6 rounded-2xl steel-texture group hover:bg-navy-light transition-colors duration-300"
+                  className="bg-navy p-4 sm:p-6 rounded-2xl steel-texture group hover:bg-navy-light transition-colors duration-300"
                 >
-                  <p className="font-display font-black text-4xl md:text-5xl text-gold leading-none mb-1">
+                  <p className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-gold leading-none mb-1">
                     {stat.prefix}
                     <AnimatedCounter target={stat.value} suffix={stat.suffix} />
                   </p>
-                  <p className="font-display font-bold text-white text-sm uppercase tracking-wide mb-1">
+                  <p className="font-display font-bold text-white text-xs sm:text-sm uppercase tracking-wide mb-1">
                     {stat.label}
                   </p>
                   <p className="font-body text-xs text-steel-light">{stat.desc}</p>

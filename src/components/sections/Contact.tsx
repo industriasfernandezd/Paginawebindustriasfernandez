@@ -210,7 +210,7 @@ export function Contact() {
                   { icon: MessageCircle, label: '322 675 2057 · 313 400 4306' },
                   { icon: Mail, label: 'industriasfernandezd@gmail.com', small: true },
                   { icon: MapPin, label: 'Cra 78 N° 48A-32 Sur\nKennedy, Bogotá D.C.' },
-                  { icon: Clock, label: 'Lun–Vie 7am–5pm · Sáb 7am–12m' },
+                  { icon: Clock, label: 'Lun 7:30am–5pm · Mar–Vie 7:30am–4pm · Sáb 7:30am–11am' },
                 ].map(({ icon: Icon, label, small }) => (
                   <li key={label} className="flex items-start gap-3">
                     <Icon className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
@@ -251,9 +251,6 @@ export function Contact() {
               <div>
                 <p className="font-display font-bold text-white text-sm uppercase tracking-wide">
                   WhatsApp directo
-                </p>
-                <p className="font-body text-xs text-steel-light">
-                  Claudia responde personalmente
                 </p>
               </div>
             </motion.a>

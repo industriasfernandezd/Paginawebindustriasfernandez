@@ -28,7 +28,7 @@ export const processSteps: ProcessStep[] = [
     step: 3,
     title: 'Soldadura',
     description:
-      'El soldador agrega portales, bisagras y portacandado. En cajas con frente en malla se suelda el refuerzo en varilla, ángulo y platina.',
+      'El soldador agrega puertas, bisagras y portacandado, uniendo y fusionando las piezas. En cajas frente en malla se refuerza con varilla, ángulo y platina.',
     icon: 'Flame',
   },
   {
@@ -52,7 +52,7 @@ export const processSteps: ProcessStep[] = [
     step: 6,
     title: 'Horno de curado',
     description:
-      'La caja ingresa al horno donde la pintura se funde y cura durante aproximadamente 2 horas. Resultado: acabado duro y resistente a la intemperie.',
+      'La caja ingresa al horno donde la pintura se funde y cura durante aproximadamente 1 hora. Resultado: acabado duro y resistente a la intemperie.',
     icon: 'Thermometer',
   },
   {
